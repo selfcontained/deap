@@ -1,33 +1,37 @@
 var assert = require('chai').assert,
 	deap = require('../index'),
-	extend = require('../lib/extend'),
-	merge = require('../lib/merge');
+	lib = require('../lib/deap');
 
 describe('deap', function() {
 
+	it('should have clone defined', function() {
+		assert.isFunction(deap.clone);
+		assert.deepEqual(deap.clone, lib.clone);
+	});
+
 	it('should have extend exposed as a top level function', function() {
 		assert.isFunction(deap);
-		assert.equal(deap, extend.deep);
+		assert.equal(deap, lib.extend);
 	});
 
 	it('should have extend defined', function() {
 		assert.isFunction(deap.extend);
-		assert.deepEqual(deap.extend, extend.deep);
+		assert.deepEqual(deap.extend, lib.extend);
 	});
 
 	it('should have extendShallow defined', function() {
 		assert.isFunction(deap.extendShallow);
-		assert.deepEqual(deap.extendShallow, extend.shallow);
+		assert.deepEqual(deap.extendShallow, lib.extendShallow);
 	});
 
 	it('should have merge defined', function() {
 		assert.isFunction(deap.merge);
-		assert.deepEqual(deap.merge, merge.deep);
+		assert.deepEqual(deap.merge, lib.merge);
 	});
 
 	it('should have mergeShallow defined', function() {
 		assert.isFunction(deap.mergeShallow);
-		assert.deepEqual(deap.mergeShallow, merge.shallow);
+		assert.deepEqual(deap.mergeShallow, lib.mergeShallow);
 	});
 
 

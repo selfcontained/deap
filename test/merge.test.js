@@ -1,13 +1,22 @@
-var merge = require('../lib/merge'),
+var lib = require('../lib/deap'),
 	assert = require('chai').assert;
 
 describe('shallow merge', function() {
-	var shallowMerge = merge.shallow;
+	var shallowMerge = lib.mergeShallow;
 
 	it('should not merge anything into an empty object', function() {
 		var result = shallowMerge({}, { foo: 'bar' });
 
 		assert.deepEqual(result, {});
+	});
+
+	it('should return a reference to the first argument', function() {
+		var a = { burp: 'adurp' },
+			b = { burp: 'zing', grr: 'arghh' };
+
+		var result = shallowMerge(a, b);
+
+		assert.strictEqual(result, a);
 	});
 
 	it('should replace existing values only', function() {
@@ -24,7 +33,16 @@ describe('shallow merge', function() {
 });
 
 describe('deep merge', function() {
-	var deepMerge = merge.deep;
+	var deepMerge = lib.merge;
+
+	it('should return a reference to the first argument', function() {
+		var a = { burp: 'adurp' },
+			b = { burp: 'zing', grr: 'arghh' };
+
+		var result = deepMerge(a, b);
+
+		assert.strictEqual(result, a);
+	});
 
 	it('should merge a nested object one level deep', function() {
 		var a = { foo: 'bar', deep: { foo: 'bar', baz: 'buzz' }},
@@ -79,7 +97,7 @@ describe('deep merge', function() {
 		assert.equal(result.deep.deeper.foo, b.deep.deeper.foo);
 	});
 
-	it('should not contain references to nested objects', function() {
+	it('should not preserve nested object references', function() {
 		var a = { foo: 'bar' },
 			nested = { grr: 'argh' },
 			newFoo = { burp: nested },
@@ -91,5 +109,28 @@ describe('deep merge', function() {
 		assert.notStrictEqual(a.foo.burp, nested);
 	});
 
+	it('should preserve array references', function() {
+		var a = { nested: [{ foo: 'bar' }] },
+			b = { nested: [{ boo: 'far' }] },
+			deep = a.nested;
+
+		var result = deepMerge(a, b);
+
+		assert.deepEqual(result.nested, b.nested);
+		assert.notStrictEqual(result.nested, b.nested);
+		assert.strictEqual(result.nested, a.nested);
+		assert.strictEqual(result.nested, deep);
+	});
+
+	it('should not preserve references in arrays', function() {
+		var a = { nested: [{ foo: 'bar' }] },
+			b = { nested: [{ boo: 'far' }] },
+			deeper = a.nested[0];
+
+		var result = deepMerge(a, b);
+
+		assert.deepEqual(result.nested, b.nested);
+		assert.notStrictEqual(result.nested[0], deeper);
+	});
 
 });

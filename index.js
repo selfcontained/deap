@@ -1,11 +1,11 @@
-var extend = require('./lib/extend'),
-	merge = require('./lib/merge');
+var lib = require('./lib/deap');
 
-var deap = module.exports = extend.deep;
+var deap = module.exports = lib.extend;
 
 deap(deap, {
-	extend: extend.deep,
-	merge: merge.deep,
-	extendShallow: extend.shallow,
-	mergeShallow: merge.shallow
+	clone: lib.clone,
+	extend: lib.extend,
+	merge: lib.merge,
+	extendShallow: lib.extendShallow,
+	mergeShallow: lib.mergeShallow
 });
