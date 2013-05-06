@@ -16,6 +16,13 @@ npm install deap
 var deap = require('deap');
 ```
 
+### Available functions
+
++ deap() and deap.extend() - **deep extend**
++ deap.merge() - **deep merge**
++ deap.extendShallow() - **shallow extend**
++ deap.mergeShallow() - **shallow merge**
+
 ---
 
 ### deap() and deap.extend()
