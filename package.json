@@ -1,0 +1,37 @@
+{
+  "name": "deap",
+  "version": "0.0.0",
+  "description": "extend and merge objects, deep or shallow",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/selfcontained/deap.git"
+  },
+  "keywords": [
+    "extend",
+    "merge",
+    "mixin",
+    "deep",
+    "shallow"
+  ],
+  "author": "Brad Harris <bmharris@gmail.com> (http://selfcontained.us)",
+  "contributors": [
+    {
+      "name": "Brad Harris",
+      "email": "bmharris@gmail.com",
+      "url": "http://selfcontained.us"
+    },
+    {
+      "name": "Matt Dunlap"
+    }
+  ],
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "mocha": "~1.9.0",
+    "chai": "~1.6.0"
+  }
+}
