@@ -79,5 +79,17 @@ describe('deep merge', function() {
 		assert.equal(result.deep.deeper.foo, b.deep.deeper.foo);
 	});
 
+	it('should not contain references to nested objects', function() {
+		var a = { foo: 'bar' },
+			nested = { grr: 'argh' },
+			newFoo = { burp: nested },
+			b = { foo: newFoo };
+
+		var result = deepMerge(a, b);
+
+		assert.deepEqual(a.foo.burp, b.foo.burp);
+		assert.notStrictEqual(a.foo.burp, nested);
+	});
+
 
 });
