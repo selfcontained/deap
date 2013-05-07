@@ -22,6 +22,7 @@ var deap = require('deap');
 + deap.merge() - **deep merge**
 + deap.extendShallow() - **shallow extend**
 + deap.mergeShallow() - **shallow merge**
++ deap.clone() - **deep clone**
 
 ---
 
@@ -42,7 +43,7 @@ deap.extend({}, someObj); // clone someObj
 
 Deep merge.  Fill an object's existing properties from another object.
 
-Takes *n* number of arguments, modifies the first argument and returns it. 
+Takes *n* number of arguments, modifies the first argument and returns it.
 
 ```javascript
 var a = { name: 'Joe', phone: '' };
