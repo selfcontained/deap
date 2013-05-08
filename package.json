@@ -1,6 +1,6 @@
 {
   "name": "deap",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "extend and merge objects, deep or shallow",
   "main": "index.js",
   "scripts": {
