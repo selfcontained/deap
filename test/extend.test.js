@@ -80,6 +80,14 @@ describe('shallow extend', function() {
 
 		assert.strictEqual(result.array, array);
 	});
+
+	it('should not pick up non-enumberable properties', function() {
+		var result = shallow({}, function() {});
+
+		assert.deepEqual(result, {});
+		assert.equal(Object.keys(result).length, 0);
+		assert.equal(Object.getOwnPropertyNames(result).length, 0);
+	});
 });
 
 describe('deep extend', function() {
