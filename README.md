@@ -16,7 +16,7 @@ npm install deap
 var deap = require('deap');
 ```
 
-### Available functions
+### available functions
 
 + deap() and deap.extend() - **deep extend**
 + deap.merge() - **deep merge**
@@ -48,4 +48,18 @@ Takes *n* number of arguments, modifies the first argument and returns it.
 ```javascript
 var a = { name: 'Joe', phone: '' };
 deap.merge(a, { age: 26, phone: '555-555-5555' }); // returns: a => { name: 'Joe', phone: '555-555-5555' }
+```
+
+---
+
+## shallow only
+
+If you prefer a shallow-only instance of **deap** you can require it specifically
+
+```javascript
+var deap = require('deap/shallow');
+
+deap() && deap.extend(); // shallow extend
+deap.merge(); //shallow merge
+deap.clone(); // deep clone
 ```
