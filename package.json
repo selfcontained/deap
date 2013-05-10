@@ -1,6 +1,6 @@
 {
   "name": "deap",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "extend and merge objects, deep or shallow",
   "main": "index.js",
   "scripts": {
@@ -45,7 +45,7 @@
       "iphone/6",
       "ipad/6"
     ],
-    "harness" : "mocha-tdd",
+    "harness": "mocha-tdd",
     "files": "test/*.test.js"
   }
 }
