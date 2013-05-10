@@ -65,3 +65,5 @@ deap() && deap.extend(); // shallow extend
 deap.merge(); //shallow merge
 deap.clone(); // deep clone
 ```
+
+...the end
