@@ -15,7 +15,8 @@
     "merge",
     "mixin",
     "deep",
-    "shallow"
+    "shallow",
+    "clone"
   ],
   "author": "Brad Harris <bmharris@gmail.com> (http://selfcontained.us)",
   "contributors": [
@@ -34,5 +35,17 @@
   "devDependencies": {
     "mocha": "~1.9.0",
     "chai": "~1.6.0"
+  },
+  "testling": {
+    "browsers": [
+      "ie/8..latest",
+      "firefox/19..latest",
+      "chrome/25..latest",
+      "safari/latest",
+      "iphone/6",
+      "ipad/6"
+    ],
+    "harness" : "mocha-tdd",
+    "files": "test/*.test.js"
   }
 }
