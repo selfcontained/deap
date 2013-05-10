@@ -1,3 +1,5 @@
+[![browser support](http://ci.testling.com/selfcontained/deap.png)](http://ci.testling.com/selfcontained/deap)
+
 [![Build Status](https://secure.travis-ci.org/selfcontained/deap.png?branch=master)](http://travis-ci.org/selfcontained/deap)
 
 deap
