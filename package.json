@@ -43,7 +43,8 @@
       "chrome/25..latest",
       "safari/latest",
       "iphone/6",
-      "ipad/6"
+      "ipad/6",
+      "android-browser/latest"
     ],
     "harness": "mocha-tdd",
     "files": "test/*.test.js"
