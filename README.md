@@ -1,4 +1,4 @@
-[![browser support](http://ci.testling.com/selfcontained/deap.png)](http://ci.testling.com/selfcontained/deap)
+[![browser support](https://ci.testling.com/selfcontained/deap.png)](http://ci.testling.com/selfcontained/deap)
 
 [![Build Status](https://secure.travis-ci.org/selfcontained/deap.png?branch=master)](http://travis-ci.org/selfcontained/deap)
 
@@ -55,7 +55,7 @@ Takes *n* number of arguments, modifies the first argument and returns it.
 
 ```javascript
 var a = { name: 'Joe', address: { number: 1234 };
-deap.merge(a, { name: 'Jack', age: 26, phone: '555-555-5555', address: { number: 4321, street: 'University Blvd' }); 
+deap.merge(a, { name: 'Jack', age: 26, phone: '555-555-5555', address: { number: 4321, street: 'University Blvd' });
 // returns: a => { name: 'Joe', age: 26, phone: '555-555-5555', address: { number: 1234, street: 'University Blvd' }}
 ```
 
