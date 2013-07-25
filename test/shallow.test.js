@@ -9,13 +9,15 @@ describe('shallow', function() {
 
 		assert.isFunction(shallow.extend);
 		assert.isFunction(shallow.update);
+		assert.isFunction(shallow.merge);
 		assert.isFunction(shallow.clone);
 	});
 
-	it('should be shallow functions', function() {
+	it('should have shallow functions', function() {
 		assert.equal(shallow, lib.extendShallow);
 		assert.equal(shallow.extend, lib.extendShallow);
 		assert.equal(shallow.update, lib.updateShallow);
+		assert.equal(shallow.merge, lib.mergeShallow);
 		assert.equal(shallow.clone, lib.clone);
 	});
 
