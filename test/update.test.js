@@ -1,11 +1,11 @@
 var lib = require('../lib/deap'),
 	assert = require('chai').assert;
 
-describe('shallow merge', function() {
-	var shallowMerge = lib.mergeShallow;
+describe('shallow update', function() {
+	var shallowUpdate = lib.updateShallow;
 
-	it('should not merge anything into an empty object', function() {
-		var result = shallowMerge({}, { foo: 'bar' });
+	it('should not update anything into an empty object', function() {
+		var result = shallowUpdate({}, { foo: 'bar' });
 
 		assert.deepEqual(result, {});
 	});
@@ -14,7 +14,7 @@ describe('shallow merge', function() {
 		var a = { burp: 'adurp' },
 			b = { burp: 'zing', grr: 'arghh' };
 
-		var result = shallowMerge(a, b);
+		var result = shallowUpdate(a, b);
 
 		assert.strictEqual(result, a);
 	});
@@ -23,7 +23,7 @@ describe('shallow merge', function() {
 		var a = { burp: 'adurp' },
 			b = { burp: 'zing', grr: 'arghh' };
 
-		var result = shallowMerge(a, b);
+		var result = shallowUpdate(a, b);
 
 		assert.deepEqual(result, a);
 		assert.equal(a.burp, b.burp);
@@ -32,34 +32,34 @@ describe('shallow merge', function() {
 
 });
 
-describe('deep merge', function() {
-	var deepMerge = lib.merge;
+describe('deep update', function() {
+	var deepUpdate = lib.update;
 
 	it('should return a reference to the first argument', function() {
 		var a = { burp: 'adurp' },
 			b = { burp: 'zing', grr: 'arghh' };
 
-		var result = deepMerge(a, b);
+		var result = deepUpdate(a, b);
 
 		assert.strictEqual(result, a);
 	});
 
-	it('should merge a nested object one level deep', function() {
+	it('should update a nested object one level deep', function() {
 		var a = { foo: 'bar', deep: { foo: 'bar', baz: 'buzz' }},
 			b = { deep: { foo: 'beep' } };
 
-		var result = deepMerge(a, b);
+		var result = deepUpdate(a, b);
 
 		assert.equal(result.foo, a.foo);
 		assert.equal(result.deep.foo, b.deep.foo);
 		assert.equal(result.deep.baz, a.deep.baz);
 	});
 
-	it('should merge a nested object two levels deep', function() {
+	it('should update a nested object two levels deep', function() {
 		var a = { foo: 'bar', deep: { hi: 'hello', deeper: { foo: 'bar', baz: 'buzz' }}},
 			b = { deep: { deeper: { foo: 'beep' } } };
 
-		var result = deepMerge(a, b);
+		var result = deepUpdate(a, b);
 
 		assert.equal(result.foo, a.foo);
 		assert.isObject(result.deep);
@@ -69,12 +69,12 @@ describe('deep merge', function() {
 		assert.equal(result.deep.deeper.baz, a.deep.deeper.baz);
 	});
 
-	it('should merge properties from multiple objects', function() {
+	it('should update properties from multiple objects', function() {
 		var a = { foo: ['one'], boo: 'far', poo: 'tar' },
 			b = { foo: ['two', 'three'], zoo: 'car' },
 			c = { boo: 'star', two: 'czar' };
 
-		var result = deepMerge(a, b, c);
+		var result = deepUpdate(a, b, c);
 
 		assert.deepEqual(result, {
 			foo: b.foo,
@@ -83,11 +83,11 @@ describe('deep merge', function() {
 		});
 	});
 
-	it('should not merge properties that are not on the first argument', function() {
+	it('should not update properties that are not on the first argument', function() {
 		var a = { foo: 'bar', deep: { deeper: { foo: 'bar' } } },
 			b = { boo: 'far', deep: { hi: 'hello', deeper: { foo: 'beep', baz: 'buzz' } } };
 
-		var result = deepMerge(a, b);
+		var result = deepUpdate(a, b);
 
 		assert.isUndefined(result.boo);
 		assert.isObject(result.deep);
@@ -103,7 +103,7 @@ describe('deep merge', function() {
 			newFoo = { burp: nested },
 			b = { foo: newFoo };
 
-		var result = deepMerge(a, b);
+		var result = deepUpdate(a, b);
 
 		assert.deepEqual(a.foo.burp, b.foo.burp);
 		assert.notStrictEqual(a.foo.burp, nested);
@@ -114,7 +114,7 @@ describe('deep merge', function() {
 			b = { nested: [{ boo: 'far' }] },
 			deep = a.nested;
 
-		var result = deepMerge(a, b);
+		var result = deepUpdate(a, b);
 
 		assert.deepEqual(result.nested, b.nested);
 		assert.notStrictEqual(result.nested, b.nested);
@@ -127,7 +127,7 @@ describe('deep merge', function() {
 			b = { nested: [{ boo: 'far' }] },
 			deeper = a.nested[0];
 
-		var result = deepMerge(a, b);
+		var result = deepUpdate(a, b);
 
 		assert.deepEqual(result.nested, b.nested);
 		assert.notStrictEqual(result.nested[0], deeper);

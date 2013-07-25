@@ -24,14 +24,14 @@ describe('deap', function() {
 		assert.deepEqual(deap.extendShallow, lib.extendShallow);
 	});
 
-	it('should have merge defined', function() {
-		assert.isFunction(deap.merge);
-		assert.deepEqual(deap.merge, lib.merge);
+	it('should have update defined', function() {
+		assert.isFunction(deap.update);
+		assert.deepEqual(deap.update, lib.update);
 	});
 
-	it('should have mergeShallow defined', function() {
-		assert.isFunction(deap.mergeShallow);
-		assert.deepEqual(deap.mergeShallow, lib.mergeShallow);
+	it('should have updateShallow defined', function() {
+		assert.isFunction(deap.updateShallow);
+		assert.deepEqual(deap.updateShallow, lib.updateShallow);
 	});
 
 

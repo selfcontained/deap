@@ -5,7 +5,7 @@ var deap = module.exports = lib.extend;
 deap(deap, {
 	clone: lib.clone,
 	extend: lib.extend,
-	merge: lib.merge,
+	update: lib.update,
 	extendShallow: lib.extendShallow,
-	mergeShallow: lib.mergeShallow
+	updateShallow: lib.updateShallow
 });
