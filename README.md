@@ -18,6 +18,10 @@ npm install deap
 var deap = require('deap');
 ```
 
+### browser usage
+
+**deap** assumes es5, so we recommend using an es5 shim for older browsers.  [Browserify](https://github.com/substack/node-browserify) is also recommended as a means to use this module client-side, but other module loaders for browsers will work with **deap** as well if you shim it.
+
 ### available functions
 
 + deap() and deap.extend() - **deep extend**
