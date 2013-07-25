@@ -38,7 +38,7 @@
   },
   "testling": {
     "browsers": [
-      "ie/8..latest",
+      "ie/9..latest",
       "firefox/19..latest",
       "chrome/25..latest",
       "safari/latest",
