@@ -30,7 +30,7 @@
       "url": "http://github.com/prestaul"
     }
   ],
-  "license": "BSD",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
     "mocha": "~1.9.0",
