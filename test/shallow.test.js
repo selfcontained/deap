@@ -18,7 +18,7 @@ describe('shallow', function() {
 		assert.equal(shallow.extend, lib.extendShallow);
 		assert.equal(shallow.update, lib.updateShallow);
 		assert.equal(shallow.merge, lib.mergeShallow);
-		assert.equal(shallow.clone, lib.clone);
+		assert.equal(shallow.clone, lib.cloneShallow);
 	});
 
 });
