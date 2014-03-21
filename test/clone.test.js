@@ -76,6 +76,23 @@ describe('shallow clone', function() {
 		assert.notStrictEqual(result, a);
 	});
 
+	it('should work for multiple arguments', function() {
+		var a = { doom: 'song' },
+			b = { burp: 'adurp' },
+			c = { grr: { doh: 'argh' } };
+
+		var result = shallow(a, b, c);
+
+		assert.deepEqual(a, { doom: 'song' });
+		assert.deepEqual(b, { burp: 'adurp' });
+		assert.deepEqual(c, { grr: { doh: 'argh' } });
+		assert.sameMembers(Object.keys(result), ['doom', 'burp', 'grr']);
+		assert.equal(result.doom, a.doom);
+		assert.equal(result.burp, b.burp);
+		assert.deepEqual(result.grr, c.grr);
+		assert.strictEqual(result.grr, c.grr);
+	});
+
 	describe('on an array', function() {
 
 		it('should preserve references', function() {
@@ -184,6 +201,23 @@ describe('clone', function() {
 
 		assert.equal(result.toString(), a.toString());
 		assert.notStrictEqual(result, a);
+	});
+
+	it('should work for multiple arguments', function() {
+		var a = { doom: 'song' },
+			b = { burp: 'adurp' },
+			c = { grr: { doh: 'argh' } };
+
+		var result = clone(a, b, c);
+
+		assert.deepEqual(a, { doom: 'song' });
+		assert.deepEqual(b, { burp: 'adurp' });
+		assert.deepEqual(c, { grr: { doh: 'argh' } });
+		assert.sameMembers(Object.keys(result), ['doom', 'burp', 'grr']);
+		assert.equal(result.doom, a.doom);
+		assert.equal(result.burp, b.burp);
+		assert.deepEqual(result.grr, c.grr);
+		assert.notStrictEqual(result.grr, c.grr);
 	});
 
 	describe('on an array', function() {
