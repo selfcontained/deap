@@ -7,6 +7,7 @@ deap(deap, {
 	extend: lib.extend,
 	update: lib.update,
 	merge: lib.merge,
+	cloneShallow: lib.cloneShallow,
 	extendShallow: lib.extendShallow,
 	updateShallow: lib.updateShallow,
 	mergeShallow: lib.mergeShallow

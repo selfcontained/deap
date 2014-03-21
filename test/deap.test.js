@@ -9,6 +9,11 @@ describe('deap', function() {
 		assert.deepEqual(deap.clone, lib.clone);
 	});
 
+	it('should have cloneShallow defined', function() {
+		assert.isFunction(deap.cloneShallow);
+		assert.deepEqual(deap.cloneShallow, lib.cloneShallow);
+	});
+
 	it('should have extend exposed as a top level function', function() {
 		assert.isFunction(deap);
 		assert.equal(deap, lib.extend);
