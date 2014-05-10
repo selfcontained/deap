@@ -88,4 +88,4 @@ deap.update(); //shallow update
 deap.clone(); // deep clone
 ```
 
-...the end
+... the end
