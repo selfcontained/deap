@@ -1,5 +1,6 @@
-[![Build Status](https://secure.travis-ci.org/selfcontained/deap.svg?branch=master)](http://travis-ci.org/selfcontained/deap)
+[![Build Status](https://travis-ci.org/selfcontained/deap.svg?branch=master)](https://travis-ci.org/selfcontained/deap)
 [![Coverage Status](https://img.shields.io/coveralls/selfcontained/deap.svg)](https://coveralls.io/r/selfcontained/deap?branch=master)
+
 ===
 
 [![browser support](https://ci.testling.com/selfcontained/deap.png)](http://ci.testling.com/selfcontained/deap)
